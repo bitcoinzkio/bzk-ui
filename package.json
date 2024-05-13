@@ -27,6 +27,9 @@
     "wagmi": "^2.5.20",
     "zustand": "^4.5.2"
   },
+  "resolutions": {
+    "@tanstack/react-query": "5.36.0"
+  },
   "devDependencies": {
     "@types/lodash": "^4.17.0",
     "@types/node": "^20",

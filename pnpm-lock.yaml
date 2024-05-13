@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@tanstack/react-query': 5.36.0
+
 dependencies:
   '@nextui-org/react':
     specifier: ^2.3.5
@@ -12,8 +15,8 @@ dependencies:
     specifier: ^2.0.5
     version: 2.0.5(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0)(viem@2.9.25)(wagmi@2.5.20)
   '@tanstack/react-query':
-    specifier: ^5.29.2
-    version: 5.31.0(react@18.2.0)
+    specifier: 5.36.0
+    version: 5.36.0(react@18.2.0)
   clsx:
     specifier: ^2.1.0
     version: 2.1.0
@@ -52,7 +55,7 @@ dependencies:
     version: 2.9.25(typescript@5.4.5)
   wagmi:
     specifier: ^2.5.20
-    version: 2.5.20(@tanstack/react-query@5.31.0)(@types/react@18.2.79)(react-dom@18.2.0)(react-native@0.74.0)(react@18.2.0)(typescript@5.4.5)(viem@2.9.25)
+    version: 2.5.20(@tanstack/react-query@5.36.0)(@types/react@18.2.79)(react-dom@18.2.0)(react-native@0.74.0)(react@18.2.0)(typescript@5.4.5)(viem@2.9.25)
   zustand:
     specifier: ^4.5.2
     version: 4.5.2(@types/react@18.2.79)(react@18.2.0)
@@ -3867,6 +3870,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: false
     bundledDependencies:
       - napi-wasm
@@ -3946,7 +3950,7 @@ packages:
       react-remove-scroll: 2.5.7(@types/react@18.2.79)(react@18.2.0)
       ua-parser-js: 1.0.37
       viem: 2.9.25(typescript@5.4.5)
-      wagmi: 2.5.20(@tanstack/react-query@5.31.0)(@types/react@18.2.79)(react-dom@18.2.0)(react-native@0.74.0)(react@18.2.0)(typescript@5.4.5)(viem@2.9.25)
+      wagmi: 2.5.20(@tanstack/react-query@5.36.0)(@types/react@18.2.79)(react-dom@18.2.0)(react-native@0.74.0)(react@18.2.0)(typescript@5.4.5)(viem@2.9.25)
     transitivePeerDependencies:
       - '@types/react'
     dev: false
@@ -5613,16 +5617,16 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@tanstack/query-core@5.31.0:
-    resolution: {integrity: sha512-r1V6RXB1LUGoEp7HGHVK4Tl59kOvAfwI9/kNNwPsb6cR5oHgfn1683sQnoH/3xEDUKOen3fEO90EnGE+OjRw5A==}
+  /@tanstack/query-core@5.36.0:
+    resolution: {integrity: sha512-B5BD3pg/mztDR36i77hGcyySKKeYrbM5mnogOROTBi1SUml5ByRK7PGUUl16vvubvQC+mSnqziFG/VIy/DE3FQ==}
     dev: false
 
-  /@tanstack/react-query@5.31.0(react@18.2.0):
-    resolution: {integrity: sha512-/GUUDFA8yNIYZaSyImkecVfN9mAVw1Y+9LpHkOQ1DdWaKnbLtwfjelh6OF+6EtwQCycH50EjTL68UK3YTMxwvg==}
+  /@tanstack/react-query@5.36.0(react@18.2.0):
+    resolution: {integrity: sha512-BATvtM0rohwg7pRHUnxgeDiwLWRGZ8OM/4y8LImHVpecQWoH6Uhytu3Z8YV6V7hQ1sMQBFcUrGE1/e4MxR6YiA==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
-      '@tanstack/query-core': 5.31.0
+      '@tanstack/query-core': 5.36.0
       react: 18.2.0
     dev: false
 
@@ -10118,6 +10122,10 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: false
+
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
@@ -12631,10 +12639,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /wagmi@2.5.20(@tanstack/react-query@5.31.0)(@types/react@18.2.79)(react-dom@18.2.0)(react-native@0.74.0)(react@18.2.0)(typescript@5.4.5)(viem@2.9.25):
+  /wagmi@2.5.20(@tanstack/react-query@5.36.0)(@types/react@18.2.79)(react-dom@18.2.0)(react-native@0.74.0)(react@18.2.0)(typescript@5.4.5)(viem@2.9.25):
     resolution: {integrity: sha512-K/9qk6+t/+NKFdbQyB7LtFgl3UXnGjvgyzAyfMQ+dF56uTSJipQwc94CSlN8kdQXTIOvhUSK2P7WJrdTEd15AA==}
     peerDependencies:
-      '@tanstack/react-query': '>=5.0.0'
+      '@tanstack/react-query': 5.36.0
       react: '>=18'
       typescript: '>=5.0.4'
       viem: 2.x
@@ -12642,7 +12650,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@tanstack/react-query': 5.31.0(react@18.2.0)
+      '@tanstack/react-query': 5.36.0(react@18.2.0)
       '@wagmi/connectors': 4.1.26(@types/react@18.2.79)(@wagmi/core@2.6.17)(react-dom@18.2.0)(react-native@0.74.0)(react@18.2.0)(typescript@5.4.5)(viem@2.9.25)
       '@wagmi/core': 2.6.17(@types/react@18.2.79)(react@18.2.0)(typescript@5.4.5)(viem@2.9.25)
       react: 18.2.0
