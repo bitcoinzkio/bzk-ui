@@ -18,6 +18,7 @@ export function useReads() {
     queryFn: async () => {
       // console.log("useReads", reads);
       if (!pc || !cc) return undefined;
+      // @ts-ignore
       const reads = createReads(pc, cc, address);
       const results: any = {};
       await Promise.all(
