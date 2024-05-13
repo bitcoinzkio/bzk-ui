@@ -49,7 +49,13 @@ export default function BondBZK() {
           <Input label="Bond Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
         </>
       }
-      footer={<ApproveAndTx tx="Confirm Bond" write={{ abi: abiVoBZK, functionName: "initalBond", address: cc.voBZK, args: [amountBn] }} />}
+      footer={
+        <ApproveAndTx
+          tx="Confirm Bond"
+          write={{ abi: abiVoBZK, functionName: "initalBond", address: cc.voBZK, args: [amountBn] }}
+          onTxSuccess={() => setAmount("")}
+        />
+      }
     />
   );
 }

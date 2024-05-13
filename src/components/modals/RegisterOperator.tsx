@@ -26,7 +26,7 @@ export default function RegisterOperator({ forOthers }: { forOthers?: boolean })
   const [amount, setAmount] = useState("");
   const [address, setAddress] = useState("");
   const amountBn = parseBn(amount);
-  const ableBZK = useStore(s => s.bzkBalance);
+  const ableBZK = useStore((s) => s.bzkBalance);
   return (
     <SimpleModal
       title="Register Operator"
@@ -48,6 +48,14 @@ export default function RegisterOperator({ forOthers }: { forOthers?: boolean })
       footer={
         <ApproveAndTx
           tx="Confirm Register"
+          spender={cc.Operator}
+          approves={{
+            [cc.bzk]: amountBn,
+          }}
+          onTxSuccess={() => {
+            setAmount("");
+            setAddress("");
+          }}
           write={{
             abi: abiOperator,
             functionName: "supportCandidate",

@@ -45,7 +45,15 @@ export default function UnBondBZK() {
           <Input label="Unbond Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
         </>
       }
-      footer={<ApproveAndTx tx="Confirm Unbond" write={{ abi: abiVoBZK, functionName: "unbond", address: cc.voBZK, args: [amountBn] }} />}
+      footer={
+        <ApproveAndTx
+          tx="Confirm Unbond"
+          write={{ abi: abiVoBZK, functionName: "unbond", address: cc.voBZK, args: [amountBn] }}
+          onTxSuccess={() => {
+            setAmount("");
+          }}
+        />
+      }
     />
   );
 }

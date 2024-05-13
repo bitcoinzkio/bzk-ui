@@ -45,3 +45,5 @@ export const CONFIG_CONTRACTS: { [k: number]: ConfigContract } = {
 };
 
 export const SUPPORT_CHAINS = [sepolia];
+
+export const CONFIRMATIONS = 1;

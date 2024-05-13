@@ -3,6 +3,7 @@ import { ReadsResult } from "./hooks/configReads";
 
 export type Store = ReadsResult & {
   refetchReads: () => void;
+  isFetchingReads: boolean;
   set: (data: Partial<Omit<Store, "set">>) => void;
 };
 
@@ -25,6 +26,7 @@ export const useStore = create<Store>((set) => {
     delegates: [],
     delegatesBribe: [],
     refetchReads: () => {},
+    isFetchingReads: false,
     set,
   };
 });

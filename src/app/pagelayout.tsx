@@ -16,7 +16,16 @@ export default function PageLayout({ children }: { children: ReactNode }) {
         <Header />
         <div className="min-h-[calc(100vh+1px)] h-auto pt-[80px] pb-6">{children}</div>
       </Providers>
-      <Toaster position="top-right" offset={70} />
+      <Toaster
+        position="top-right"
+        offset={70}
+        closeButton
+        toastOptions={{
+          classNames: {
+            closeButton: "bg-bg",
+          },
+        }}
+      />
     </>
   );
 }

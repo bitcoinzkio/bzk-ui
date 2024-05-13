@@ -7,6 +7,7 @@ import { Button } from "./Button";
 import { getBigint, getErrorMsg } from "./utils";
 import { useStore } from "@/store";
 import { useMutation } from "@tanstack/react-query";
+import { CONFIRMATIONS } from "@/config";
 
 const cacheAllowance: { [k: Address]: { [k: Address]: bigint } } = {};
 const NATIVE_TOKEN_ADDRESS = zeroAddress;
@@ -58,7 +59,7 @@ export const useApproves = (
           functionName: "approve",
           args: [spender, allowanceValue],
         });
-        txHash && (await client?.waitForTransactionReceipt({ hash: txHash }));
+        txHash && (await client?.waitForTransactionReceipt({ hash: txHash, confirmations: CONFIRMATIONS }));
         updateAllownce(token, allowanceValue);
       }
       toaster.success("Approve success ✅");
@@ -107,7 +108,7 @@ export function ApproveAndTx<
     mutationFn: async () => {
       if (!pc) throw "Not connect";
       const hash = await writeContractAsync(write as any);
-      await pc.waitForTransactionReceipt({ hash, confirmations: 3 });
+      await pc.waitForTransactionReceipt({ hash, confirmations: CONFIRMATIONS });
     },
     onError: (error) => {
       const msg = getErrorMsg(error);
@@ -116,7 +117,7 @@ export function ApproveAndTx<
     onSuccess: (tx) => {
       reFetchReads();
       onTxSuccess && onTxSuccess();
-      toast && toaster.success("Transiction Success ✅");
+      toast && toaster.success("Transiction Success !");
     },
   });
   const txDisabled = disabled || isPending;

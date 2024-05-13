@@ -11,8 +11,7 @@ export function useReads() {
   const chainId = useCurrentChainId();
   const cc = CONFIG_CONTRACTS[chainId];
   const pc = usePublicClient();
-
-  const { data, refetch } = useQuery({
+  const { data, refetch, isFetching } = useQuery({
     queryKey: ["reads", address, chainId, !!pc],
     retry: true,
     staleTime: 1000 * 60 * 10,
@@ -31,7 +30,10 @@ export function useReads() {
     },
   });
   const { set } = useStore();
+
   useEffect(() => {
     data && set({ ...data, refetchReads: refetch });
   }, [data]);
+
+  useEffect(() => set({ isFetchingReads: isFetching }), [isFetching]);
 }

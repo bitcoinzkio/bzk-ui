@@ -43,6 +43,10 @@ export default function Delegate() {
       footer={
         <ApproveAndTx
           tx="Confirm Delegate"
+          onTxSuccess={() => {
+            setAmount("");
+            setAddress("");
+          }}
           write={{ abi: abiVoBZK, functionName: "delegate", address: cc.voBZK, args: [address as Address, amountBn] }}
         />
       }

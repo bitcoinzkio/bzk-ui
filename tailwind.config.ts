@@ -11,7 +11,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {},
-      colors: {},
+      colors: {
+        bg: "var(--bg)",
+      },
     },
   },
   darkMode: "class",

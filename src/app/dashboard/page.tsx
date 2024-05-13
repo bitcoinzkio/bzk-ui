@@ -10,7 +10,7 @@ import { useCurrentChainId } from "@/hooks/useCurrentChainId";
 import { selectVotingPower, useStore } from "@/store";
 import { ApproveAndTx } from "@/ui/ApproveAndTx";
 import SimpleTable from "@/ui/SimpleTable";
-import { formatBn } from "@/ui/utils";
+import { cn, formatBn } from "@/ui/utils";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
 import { ReactNode } from "react";
 
@@ -49,7 +49,9 @@ export default function Page() {
         <CardHeader className={headerClassName}>Operator Role</CardHeader>
         <CardBody>
           <div>Current Role</div>
-          <div>{store.isOperator ? "Operator" : store.isCandidate ? "Candidate" : "N/A"}</div>
+          <div className={cn(store.isOperator ? "text-green-500" : store.isCandidate ? "text-orange-500" : "")}>
+            {store.isOperator ? "Operator" : store.isCandidate ? "Candidate" : "N/A"}
+          </div>
         </CardBody>
         <CardFooter className="flex gap-5 items-center">
           <RegisterOperator />
@@ -86,7 +88,7 @@ export default function Page() {
         </CardBody>
       </Card>
       <Card className="col-span-2">
-        <CardHeader className={headerClassName}>My Vote</CardHeader>
+        <CardHeader className={headerClassName}>My Voting Power</CardHeader>
         <CardBody className="">
           <div>My voBZK available: {formatBn(vote.voteOfVoBZK)}</div>
           <div>Received Delegation from others: {formatBn(vote.voteReceived)}</div>
