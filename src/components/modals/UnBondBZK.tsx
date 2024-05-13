@@ -35,16 +35,6 @@ export default function UnBondBZK() {
       bodyProps={{
         className: "flex flex-col gap-5",
       }}
-      children={
-        <>
-          <div className="flex flex-col gap-1">
-            <Info tit="My voBZK total balance" value={formatBn(voBzkBalance)} />
-            <Info tit="In Delegation" value={formatBn(voBzkInDelagation)} />
-          </div>
-          <Info tit="Available to Unbond" value={formatBn(available)} />
-          <Input label="Unbond Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
-        </>
-      }
       footer={
         <ApproveAndTx
           tx="Confirm Unbond"
@@ -54,6 +44,13 @@ export default function UnBondBZK() {
           }}
         />
       }
-    />
+    >
+      <div className="flex flex-col gap-1">
+        <Info tit="My voBZK total balance" value={formatBn(voBzkBalance)} />
+        <Info tit="In Delegation" value={formatBn(voBzkInDelagation)} />
+      </div>
+      <Info tit="Available to Unbond" value={formatBn(available)} />
+      <Input label="Unbond Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
+    </SimpleModal>
   );
 }

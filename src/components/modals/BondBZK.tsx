@@ -37,18 +37,6 @@ export default function BondBZK() {
       bodyProps={{
         className: "flex flex-col gap-5",
       }}
-      children={
-        <>
-          <div className="flex flex-col gap-1">
-            <Info tit="My BZK total balance" value={formatBn(total)} />
-            <Info tit="In Operator Deposit" value={formatBn(bzkInOperator)} />
-            <Info tit="In Proposal Deposit" value={formatBn(bzkInProposal)} />
-            <Info tit="In Bonding Process" value={formatBn(bzkInBonding)} />
-          </div>
-          <Info tit="Available to Bond" value={formatBn(bzkBalance)} />
-          <Input label="Bond Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
-        </>
-      }
       footer={
         <ApproveAndTx
           tx="Confirm Bond"
@@ -56,6 +44,15 @@ export default function BondBZK() {
           onTxSuccess={() => setAmount("")}
         />
       }
-    />
+    >
+      <div className="flex flex-col gap-1">
+        <Info tit="My BZK total balance" value={formatBn(total)} />
+        <Info tit="In Operator Deposit" value={formatBn(bzkInOperator)} />
+        <Info tit="In Proposal Deposit" value={formatBn(bzkInProposal)} />
+        <Info tit="In Bonding Process" value={formatBn(bzkInBonding)} />
+      </div>
+      <Info tit="Available to Bond" value={formatBn(bzkBalance)} />
+      <Input label="Bond Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
+    </SimpleModal>
   );
 }

@@ -35,16 +35,6 @@ export default function RegisterOperator({ forOthers }: { forOthers?: boolean })
       bodyProps={{
         className: "flex flex-col gap-5",
       }}
-      children={
-        <>
-          {forOthers && <Input label="Register For:" required validate={validationAddress} value={address} onValueChange={setAddress} />}
-          <div className="flex flex-col gap-1">
-            <Info tit="Fund BZK for Register" value="" />
-            <div className="font-bold">You are able to fund {formatBn(ableBZK)} BZK</div>
-          </div>
-          <Input label="Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
-        </>
-      }
       footer={
         <ApproveAndTx
           tx="Confirm Register"
@@ -64,6 +54,13 @@ export default function RegisterOperator({ forOthers }: { forOthers?: boolean })
           }}
         />
       }
-    />
+    >
+      {forOthers && <Input label="Register For:" required validate={validationAddress} value={address} onValueChange={setAddress} />}
+      <div className="flex flex-col gap-1">
+        <Info tit="Fund BZK for Register" value="" />
+        <div className="font-bold">You are able to fund {formatBn(ableBZK)} BZK</div>
+      </div>
+      <Input label="Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
+    </SimpleModal>
   );
 }

@@ -33,13 +33,6 @@ export default function Delegate() {
       bodyProps={{
         className: "flex flex-col gap-5",
       }}
-      children={
-        <>
-          <div className="font-bold">You are able to delegate: {formatBn(ableDelegate)} voBZK</div>
-          <Input label="Delegate to:" required validate={validationAddress} value={address} onValueChange={setAddress} />
-          <Input label="Delegate Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
-        </>
-      }
       footer={
         <ApproveAndTx
           tx="Confirm Delegate"
@@ -50,6 +43,10 @@ export default function Delegate() {
           write={{ abi: abiVoBZK, functionName: "delegate", address: cc.voBZK, args: [address as Address, amountBn] }}
         />
       }
-    />
+    >
+      <div className="font-bold">You are able to delegate: {formatBn(ableDelegate)} voBZK</div>
+      <Input label="Delegate to:" required validate={validationAddress} value={address} onValueChange={setAddress} />
+      <Input label="Delegate Amount:" required validate={validationPositiveNumber} value={amount} onValueChange={setAmount} />
+    </SimpleModal>
   );
 }
